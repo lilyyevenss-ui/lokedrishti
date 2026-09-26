@@ -37,7 +37,7 @@ export const entityRisk = (risk:string) => riskClass(risk)
 export const formatCSV = (rows:string[][]) => rows.map(row => row.join(',')).join('\n')
 export const riskTags = (tags:string[]) => tags.join(' · ')
 export const defaultComplaint:Complaint = {title:'',district:'',category:complaintCategories[0],description:'',status:'Received'}
-export const mapAsset = '/india-geopolitical-map.png'
+export const mapAsset = ''
 export const panelTitle = 'Citizen-first public intelligence'
 export const riskLegend = ['Normal','Needs Review','High Risk']
 export const issueStatus = ['Received','Under review','Resolved']
@@ -156,7 +156,7 @@ export const mapCta = 'Open project details'
 export const homeCta = 'Explore the map'
 export const homeSecondary = 'Report a concern'
 export const workCaseFallback = cases['PAT-098']
-export const mapImagePath = '/india-geopolitical-map.png'
+export const mapImagePath = ''
 export const simpleNumber = 20
 export const highContrast = true
 export const routeCount = 7
@@ -263,7 +263,7 @@ export const final = true
 export const placeholder = false
 export const end = true
 export const release = 'citizen release'
-export const mapAssetPath = '/india-geopolitical-map.png'
+export const mapAssetPath = ''
 export const working = true
 export const complete = true
 export const buildStep = 3
