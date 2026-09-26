@@ -62,6 +62,10 @@ body { @apply bg-background text-foreground font-sans; background-image: radial-
 .pipeline-stage { @apply flex h-10 shrink-0 items-center whitespace-nowrap px-0 text-[10px] font-semibold uppercase tracking-[0.12em] text-muted-foreground; }
 .pipeline-stage-active { @apply text-[#6F8574]; }
 .panel { @apply rounded-2xl border border-border bg-card shadow-[0_8px_30px_rgba(38,52,42,0.04)]; }
+.system-health-panel { color: #26332d; }
+.system-health-panel .text-muted-foreground { color: #5B6560; }
+.dark .system-health-panel { color: var(--foreground); }
+.dark .system-health-panel .text-muted-foreground { color: var(--muted-foreground); }
 .metric-card { @apply rounded-2xl border border-border bg-card p-5 shadow-[0_8px_30px_rgba(38,52,42,0.04)]; }
 .eyebrow { @apply text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground; }
 .status-pill { @apply inline-flex rounded-full px-2.5 py-1 text-[10px] font-semibold; }
