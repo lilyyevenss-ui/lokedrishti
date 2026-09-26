@@ -10,14 +10,14 @@ import { LoginScreen } from '@/components/login-screen'
 
 const navItems = [
   { href: '/', label: 'Overview', icon: Home },
-  { href: '/officer/summary', label: 'Summary', icon: FileText },
-  { href: '/officer/mps', label: 'MP directory', icon: Users },
   { href: '/map', label: 'India Map', icon: Map },
   { href: '/fraud-network', label: 'Fraud Network', icon: Network },
   { href: '/alerts', label: 'Risk Center', icon: AlertTriangle },
   { href: '/complaints', label: 'Citizen Complaints', icon: FileText },
   { href: '/compliance', label: 'Compliance', icon: ShieldCheck },
   { href: '/reports', label: 'Reports', icon: BarChart3 },
+  { href: '/officer/mps', label: 'MP directory', icon: Users },
+  { href: '/officer/summary', label: 'Summary', icon: FileText },
 ]
 
 export function SiteShell({ children }: { children: React.ReactNode }) {
