@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useEffect } from 'react'
 import { AlertTriangle, BarChart3, FileText, Home, Map, Network, Sun, Moon, ShieldCheck, X } from 'lucide-react'
 import { useApp } from '@/context/AppContext'
+import { LoginScreen } from '@/components/login-screen'
 
 const navItems = [
   { href: '/', label: 'Overview', icon: Home },
@@ -16,12 +17,14 @@ const navItems = [
 ]
 
 export function SiteShell({ children }: { children: React.ReactNode }) {
-  const { darkMode, toggleDarkMode, role } = useApp()
+  const { darkMode, toggleDarkMode, role, authenticated, login } = useApp()
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', darkMode)
     document.documentElement.style.colorScheme = darkMode ? 'dark' : 'light'
   }, [darkMode])
+
+  if (!authenticated) return <LoginScreen onLogin={login} />
 
   return (
     <div className="min-h-screen bg-background text-foreground">

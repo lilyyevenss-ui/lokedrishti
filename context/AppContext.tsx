@@ -10,6 +10,8 @@ type AppContextValue = {
   setRole: (role: Role) => void
   darkMode: boolean
   toggleDarkMode: () => void
+  authenticated: boolean
+  login: (role: Role) => void
   projects: Project[]
   complaints: typeof seedComplaints
   importCsv: (file: File) => Promise<void>
@@ -19,7 +21,8 @@ type AppContextValue = {
 const AppContext = createContext<AppContextValue | null>(null)
 
 export function AppProvider({ children }: { children: ReactNode }) {
-  const [role, setRole] = useState<Role>('District Authority (Varanasi)')
+  const [role, setRole] = useState<Role>('Citizen')
+  const [authenticated, setAuthenticated] = useState(false)
   const [darkMode, setDarkMode] = useState(false)
   const [projectData, setProjectData] = useState(projects)
   const [complaintData] = useState(seedComplaints)
@@ -60,7 +63,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
     URL.revokeObjectURL(url)
   }
 
-  const value = useMemo(() => ({ role, setRole, darkMode, toggleDarkMode: () => setDarkMode((value) => !value), projects: projectData, complaints: complaintData, importCsv, exportCsv }), [role, darkMode, projectData, complaintData])
+  const value = useMemo(() => ({ role, setRole, authenticated, login: (nextRole: Role) => { setRole(nextRole); setAuthenticated(true) }, darkMode, toggleDarkMode: () => setDarkMode((value) => !value), projects: projectData, complaints: complaintData, importCsv, exportCsv }), [role, authenticated, darkMode, projectData, complaintData])
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>
 }
