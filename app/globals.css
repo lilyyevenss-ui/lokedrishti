@@ -68,9 +68,9 @@ body { @apply bg-background text-foreground font-sans; background-image: radial-
 .status-on { @apply bg-[#6F8574]/12 text-[#58705d] dark:text-[#A5D6A7]; }
 .status-at { @apply bg-[#D3A84B]/15 text-[#97752a] dark:text-[#E7C66C]; }
 .status-delayed { @apply bg-[#C9785F]/15 text-[#A64F38] dark:text-[#ED9D86]; }
-.risk-normal { @apply bg-[#6F9873]/15 text-[#527257]; }
-.risk-review { @apply bg-[#B79355]/15 text-[#8c6b32]; }
-.risk-high { @apply bg-[#B2635D]/15 text-[#9b4b46]; }
+  .risk-normal { @apply bg-[#6F9873]/15 text-[#527257]; }
+  .risk-review { @apply bg-[#B79355]/15 text-[#8c6b32]; }
+  .risk-high { @apply bg-[#B2635D]/15 text-[#9b4b46]; }
 .entity-node { @apply relative rounded-2xl border border-border bg-card p-5 shadow-[0_8px_30px_rgba(38,52,42,0.04)] transition hover:-translate-y-0.5 hover:border-[#6F8574] hover:shadow-lg; }
 .network-canvas { @apply relative min-h-[680px] overflow-hidden rounded-3xl border border-border bg-[radial-gradient(circle_at_50%_35%,rgba(111,152,115,.14),transparent_42%),linear-gradient(145deg,hsl(var(--card)),hsl(var(--muted)))]; }
 .network-lines { @apply pointer-events-none absolute inset-0 h-full w-full; }
@@ -85,11 +85,12 @@ body { @apply bg-background text-foreground font-sans; background-image: radial-
 .map-grid { @apply absolute inset-0 opacity-25; background-size: 46px 46px; background-image: linear-gradient(to right, #c6d1c5 1px, transparent 1px), linear-gradient(to bottom, #c6d1c5 1px, transparent 1px); }
 .india-map-stage { @apply absolute left-[18%] top-[2%] h-[96%] w-[64%]; }
 .india-map-image { @apply absolute left-[12%] top-[2%] h-[96%] w-[76%] overflow-hidden border-2 border-[#718674] bg-[#dfe8dc]; clip-path: polygon(48% 0%, 59% 5%, 65% 13%, 72% 20%, 79% 29%, 84% 39%, 82% 48%, 88% 57%, 80% 64%, 74% 70%, 69% 79%, 63% 88%, 57% 100%, 51% 91%, 45% 84%, 40% 76%, 33% 72%, 27% 64%, 22% 55%, 18% 45%, 23% 36%, 29% 28%, 35% 20%, 39% 11%); filter: drop-shadow(0 12px 10px rgba(55,72,57,.18)); } .india-map-image::before { content: ''; @apply absolute inset-0 opacity-60; background: repeating-linear-gradient(32deg, transparent 0 48px, rgba(88,111,91,.35) 49px 50px), repeating-linear-gradient(118deg, transparent 0 62px, rgba(88,111,91,.28) 63px 64px); } .state-label { @apply absolute z-[1] rounded bg-white/70 px-1 py-0.5 font-mono text-[9px] font-bold text-[#536957]; } .state-up { left: 43%; top: 29%; } .state-br { left: 56%; top: 35%; } .state-mh { left: 35%; top: 51%; } .state-ka { left: 37%; top: 69%; } .state-ap { left: 51%; top: 68%; } .state-rj { left: 25%; top: 30%; }
-.map-marker { @apply absolute z-10 grid h-5 w-5 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-2 border-white shadow-md transition hover:z-20 hover:scale-150; }
-.map-marker span { @apply h-2 w-2 rounded-full bg-white/90; }
-.map-marker { @apply absolute z-10 grid h-5 w-5 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-2 border-white shadow-md transition hover:z-20 hover:scale-150; }
-.map-marker span { @apply h-2 w-2 rounded-full bg-white/90; }
-.map-tooltip { @apply pointer-events-none absolute left-1/2 top-7 z-30 hidden w-[280px] -translate-x-1/2 rounded-2xl border-2 border-[#9eafa0] bg-[#ffffff] p-4 text-left shadow-[0_18px_45px_rgba(31,45,34,.3)]; }
+  .map-marker { @apply absolute z-10 grid h-5 w-5 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-2 border-white shadow-md transition hover:z-30 hover:scale-125; }
+  .map-marker span { @apply h-2 w-2 rounded-full bg-white/90; }
+  .map-marker.risk-normal { background-color: #6F9873; }
+  .map-marker.risk-review { background-color: #B79355; }
+  .map-marker.risk-high { background-color: #B2635D; }
+  .map-tooltip { @apply pointer-events-none absolute left-1/2 top-8 z-40 hidden w-[270px] -translate-x-1/2 rounded-xl border border-[#839987] bg-white p-4 text-left shadow-[0_16px_40px_rgba(31,45,34,.28)]; }
 .map-tooltip strong { @apply block text-xs font-semibold leading-4 text-foreground; }
 .map-tooltip small { @apply mt-1 block text-[11px] text-muted-foreground; }
 .map-tooltip em { @apply mt-2 block rounded-md px-2 py-1 text-[10px] not-italic; }
