@@ -25,6 +25,7 @@ export function CitizenShell({ children }: { children: React.ReactNode }) {
           <button onClick={toggleDarkMode} className="grid h-9 w-9 place-items-center rounded-lg border border-border hover:bg-muted" aria-label="Toggle theme">{darkMode ? <Sun size={16} /> : <Moon size={16} />}</button>
         </div>
         <nav className="mx-auto flex max-w-7xl gap-1 overflow-x-auto px-5 pb-3 lg:px-8" aria-label="Citizen navigation">{links.map(({ href, label, icon: Icon }) => <Link key={href} href={href} className="flex shrink-0 items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground hover:bg-muted hover:text-foreground"><Icon size={15} />{label}</Link>)}</nav>
+        <div className="border-t border-border/70 bg-[#f5f8f4] dark:bg-[#1d2a20]"><div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-2 text-[11px] lg:px-8"><span className="flex items-center gap-2 text-muted-foreground"><span className="h-1.5 w-1.5 rounded-full bg-[#6F9873]" /> Public works data updated 2 hours ago</span><Link href="/citizen/complaints" className="font-semibold text-[#55755d] hover:underline">Need help? File a grievance</Link></div></div>
       </header>
       <main className="mx-auto max-w-7xl px-5 py-8 lg:px-8">{children}</main>
     </div>
