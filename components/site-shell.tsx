@@ -3,13 +3,15 @@
 import Link from 'next/link'
 import { useEffect } from 'react'
 import { usePathname, useRouter } from 'next/navigation'
-import { AlertTriangle, BarChart3, FileText, Home, Map, Network, Sun, Moon, ShieldCheck, X } from 'lucide-react'
+import { AlertTriangle, BarChart3, FileText, Home, Map, Network, Sun, Moon, ShieldCheck, Users, X } from 'lucide-react'
 import { CitizenShell } from '@/components/citizen-shell'
 import { useApp } from '@/context/AppContext'
 import { LoginScreen } from '@/components/login-screen'
 
 const navItems = [
   { href: '/', label: 'Overview', icon: Home },
+  { href: '/officer/summary', label: 'Summary', icon: FileText },
+  { href: '/officer/mps', label: 'MP directory', icon: Users },
   { href: '/map', label: 'India Map', icon: Map },
   { href: '/fraud-network', label: 'Fraud Network', icon: Network },
   { href: '/alerts', label: 'Risk Center', icon: AlertTriangle },
