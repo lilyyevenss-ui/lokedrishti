@@ -6,8 +6,8 @@ import type { Role } from '@/context/AppContext'
 
 export function LoginScreen({ onLogin }: { onLogin: (role: Role) => void }) {
   const [selected, setSelected] = useState<Role>('Citizen')
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
+  const [name, setName] = useState('Demo Citizen')
+  const [email, setEmail] = useState('citizen@mplads.demo')
   const roles: Role[] = ['Citizen', 'District Authority (Varanasi)', 'MoSPI Nodal']
   return (
     <main className="grid min-h-screen place-items-center bg-background px-5 py-10">
