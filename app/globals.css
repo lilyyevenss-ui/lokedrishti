@@ -102,6 +102,9 @@ body { @apply bg-background text-foreground font-sans; background-image: radial-
 .evidence-art span { @apply m-2 rounded bg-black/30 px-1.5 py-0.5 font-mono text-[9px] text-white; }
 @media (max-width: 640px) { .india-map { min-height: 480px; } }
   .leaflet-map-frame { overflow: hidden; border: 1px solid hsl(var(--border)); border-radius: 14px; background: #e8eee8; }
+  .dashboard-leaflet-map { height: 330px; overflow: hidden; }
+  .dashboard-leaflet-map .leaflet-map-frame, .dashboard-leaflet-map .leaflet-container { height: 330px !important; min-height: 330px; border-radius: 0; border: 0; }
+  .dashboard-leaflet-map .leaflet-hover-card { min-width: 210px; }
   .leaflet-container { font-family: inherit; background: #e8eee8; }
   .leaflet-risk-pin-wrapper { background: transparent; border: 0; }
   .leaflet-risk-pin { display: grid; place-items: center; width: 24px; height: 30px; background: var(--pin-color); border: 3px solid #fff; border-radius: 50% 50% 50% 0; box-shadow: 0 5px 12px rgba(20, 36, 24, .35); transform: rotate(-45deg); }
