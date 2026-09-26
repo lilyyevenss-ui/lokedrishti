@@ -18,7 +18,14 @@ export function LoginScreen({ onLogin }: { onLogin: (role: Role) => void }) {
   const [district, setDistrict] = useState('')
   const [state, setState] = useState('')
   const [email, setEmail] = useState('')
-  const applyProfile = (profile: DemoProfile) => { setSelected(profile.role); setName(profile.name); setDistrict(profile.district); setState(profile.state); setEmail(profile.email); onLogin(profile.role) }
+  const applyProfile = (profile: DemoProfile) => {
+    setSelected(profile.role)
+    setName(profile.name)
+    setDistrict(profile.district)
+    setState(profile.state)
+    setEmail(profile.email)
+    onLogin(profile.role)
+  }
   const canContinue = Boolean(name.trim() && district.trim() && state.trim() && email.trim())
 
   return (

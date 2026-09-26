@@ -2,7 +2,9 @@
 
 import Link from 'next/link'
 import { useEffect } from 'react'
+import { usePathname, useRouter } from 'next/navigation'
 import { AlertTriangle, BarChart3, FileText, Home, Map, Network, Sun, Moon, ShieldCheck, X } from 'lucide-react'
+import { CitizenShell } from '@/components/citizen-shell'
 import { useApp } from '@/context/AppContext'
 import { LoginScreen } from '@/components/login-screen'
 
@@ -18,13 +20,20 @@ const navItems = [
 
 export function SiteShell({ children }: { children: React.ReactNode }) {
   const { darkMode, toggleDarkMode, role, authenticated, login } = useApp()
+  const pathname = usePathname()
+  const router = useRouter()
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', darkMode)
     document.documentElement.style.colorScheme = darkMode ? 'dark' : 'light'
   }, [darkMode])
 
-  if (!authenticated) return <LoginScreen onLogin={login} />
+  useEffect(() => {
+    if (authenticated && role === 'Citizen' && pathname === '/') router.replace('/citizen/works')
+  }, [authenticated, pathname, role, router])
+
+  if (!authenticated) return <LoginScreen onLogin={(nextRole) => { login(nextRole); router.replace(nextRole === 'Citizen' ? '/citizen/works' : '/') }} />
+  if (role === 'Citizen') return pathname.startsWith('/citizen') ? <>{children}</> : <CitizenShell><div className="min-h-[60vh]" /></CitizenShell>
 
   return (
     <div className="min-h-screen bg-background text-foreground">
