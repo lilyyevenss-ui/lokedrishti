@@ -9,8 +9,8 @@ const fraunces = Fraunces({ subsets: ['latin'], variable: '--font-fraunces' })
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
 export const metadata: Metadata = {
-  title: 'MPLADS Intelligence',
-  description: 'Evidence-led public impact intelligence for MPLADS projects.',
+  title: 'LokeDrishti · MPLADS Intelligence',
+  description: 'LokeDrishti — evidence-led public impact intelligence for MPLADS projects.',
   generator: 'v0.app',
 }
 

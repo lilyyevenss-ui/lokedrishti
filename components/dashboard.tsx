@@ -10,7 +10,7 @@ import { useApp, type Role } from '@/context/AppContext'
 const stages = ['Ingestion', 'ML Screening', 'Anomaly Signals', 'Intelligence Graph', 'AI Brief', 'Auditor Action']
 
 function Logo() {
-  return <div className="flex items-center gap-3"><div className="grid h-9 w-9 place-items-center rounded-xl bg-[#6F8574] text-white shadow-sm"><GitBranch size={20} strokeWidth={2.5} /></div><div><div className="font-serif text-[17px] font-semibold leading-none tracking-tight">MPLADS</div><div className="mt-1 font-sans text-[9px] font-semibold uppercase tracking-[0.23em] text-muted-foreground">Intelligence</div></div></div>
+  return <div className="flex items-center gap-3"><div className="grid h-9 w-9 place-items-center rounded-xl bg-[#6F8574] text-white shadow-sm"><GitBranch size={20} strokeWidth={2.5} /></div><div><div className="font-serif text-[17px] font-semibold leading-none tracking-tight">LokeDrishti</div><div className="mt-1 font-sans text-[9px] font-semibold uppercase tracking-[0.23em] text-muted-foreground">MPLADS Intelligence</div></div></div>
 }
 
 function Navbar({ onLogin }: { onLogin: () => void }) {
