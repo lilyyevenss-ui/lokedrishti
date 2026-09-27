@@ -47,10 +47,10 @@ const edges = [
 ]
 
 const styles: Record<NodeKind, { accent: string; badge: string; label: string }> = {
-  mp: { accent: 'border-l-sky-400', badge: 'bg-sky-100 text-sky-700', label: 'MP' },
-  officer: { accent: 'border-l-purple-400', badge: 'bg-purple-100 text-purple-700', label: 'OFFICER' },
-  contractor: { accent: 'border-l-amber-400', badge: 'bg-amber-100 text-amber-700', label: 'CONTRACTOR' },
-  shell: { accent: 'border-l-rose-500', badge: 'bg-rose-100 text-rose-700', label: 'SHELL ENTITY' },
+  mp: { accent: 'border-l-[#6f8574]', badge: 'bg-[#e8eee8] text-[#52695a]', label: 'MP' },
+  officer: { accent: 'border-l-[#87938b]', badge: 'bg-[#eef1ee] text-[#5b6860]', label: 'OFFICER' },
+  contractor: { accent: 'border-l-[#a7b19e]', badge: 'bg-[#f0f2ed] text-[#66735f]', label: 'CONTRACTOR' },
+  shell: { accent: 'border-l-[#69756d]', badge: 'bg-[#e8ece9] text-[#4d5b52]', label: 'SHELL ENTITY' },
 }
 
 export default function MacroFraudNetwork() {
@@ -72,7 +72,7 @@ export default function MacroFraudNetwork() {
                   return <button key={node.id} type="button" onMouseEnter={() => setActive(node.id)} onMouseLeave={() => setActive(null)} onFocus={() => setActive(node.id)} onBlur={() => setActive(null)} onClick={() => setSelectedNode(node)} className={`relative w-full rounded-xl border border-[#E1E5E0] border-l-4 ${style.accent} bg-white p-4 text-left shadow-sm transition hover:-translate-y-0.5 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-[#6F8574]`}>
                     <div className="flex items-center justify-between gap-2"><span className={`rounded-full px-2 py-1 text-[9px] font-bold tracking-wide ${style.badge}`}>{style.label}</span><span className="text-[10px] text-[#87938b]">{node.district}</span></div>
                     <p className="mt-3 text-sm font-bold text-[#26332d]">{node.name}</p>
-                    <div className="mt-3 flex items-center justify-between gap-2 text-[10px] text-[#87938b]"><span>{node.cases} cases</span><span className="font-bold text-rose-600">{node.amount}</span></div>
+                    <div className="mt-3 flex items-center justify-between gap-2 text-[10px] text-[#87938b]"><span>{node.cases} cases</span><span className="font-bold text-[#66735f]">{node.amount}</span></div>
                   </button>
                 })}
               </div>
@@ -97,7 +97,7 @@ export default function MacroFraudNetwork() {
           })}
         </svg>
       </div>
-      {selectedNode && <aside className="fixed inset-y-0 right-0 z-50 w-[min(390px,calc(100vw-24px))] overflow-y-auto border-l border-[#dfe6df] bg-white p-6 text-[#26332d] shadow-2xl" aria-label="Connected fraud cases"><div className="flex items-start justify-between gap-4"><div><p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#718078]">Selected entity</p><h2 className="mt-2 text-xl font-bold">{selectedNode.name}</h2><p className="mt-1 text-xs text-[#718078]">{styles[selectedNode.kind].label} · {selectedNode.district}</p></div><button type="button" aria-label="Close connected cases" onClick={() => setSelectedNode(null)} className="rounded-lg px-2 py-1 text-xl text-[#718078] hover:bg-[#f0f4ef]">×</button></div><div className="mt-6 rounded-xl bg-[#f3f7f2] p-4"><p className="text-3xl font-bold">{selectedNode.cases}</p><p className="mt-1 text-xs text-[#718078]">connected flagged cases</p><p className="mt-3 text-sm font-semibold text-rose-600">{selectedNode.amount}</p></div><div className="mt-7"><h3 className="text-sm font-bold">Navigate cases</h3><div className="mt-3 space-y-3">{Array.from({ length: selectedNode.cases }, (_, index) => { const caseId = `${selectedNode.id}-case-${index + 1}`; return <a key={caseId} href={`/fraud-network/cases/${caseId}`} className="block rounded-xl border border-[#e1e5e0] p-4 transition hover:border-[#9cb39f] hover:bg-[#f7f9f6]"><div className="flex items-center justify-between gap-3"><span className="text-xs font-bold text-[#26332d]">Case {String(index + 1).padStart(2, '0')} · {selectedNode.district}</span><span className="text-[#718078]">→</span></div><p className="mt-2 text-xs leading-5 text-[#718078]">Linked MPLADS work review involving {selectedNode.name}.</p><p className="mt-3 text-[10px] font-bold uppercase tracking-wide text-rose-600">Open case file</p></a> })}</div></div></aside>}
+      {selectedNode && <aside className="fixed inset-y-0 right-0 z-50 w-[min(390px,calc(100vw-24px))] overflow-y-auto border-l border-[#dfe6df] bg-white p-6 text-[#26332d] shadow-2xl" aria-label="Connected fraud cases"><div className="flex items-start justify-between gap-4"><div><p className="text-[10px] font-bold uppercase tracking-[0.16em] text-[#718078]">Selected entity</p><h2 className="mt-2 text-xl font-bold">{selectedNode.name}</h2><p className="mt-1 text-xs text-[#718078]">{styles[selectedNode.kind].label} · {selectedNode.district}</p></div><button type="button" aria-label="Close connected cases" onClick={() => setSelectedNode(null)} className="rounded-lg px-2 py-1 text-xl text-[#718078] hover:bg-[#f0f4ef]">×</button></div><div className="mt-6 rounded-xl bg-[#f3f7f2] p-4"><p className="text-3xl font-bold">{selectedNode.cases}</p><p className="mt-1 text-xs text-[#718078]">connected flagged cases</p><p className="mt-3 text-sm font-semibold text-[#66735f]">{selectedNode.amount}</p></div><div className="mt-7"><h3 className="text-sm font-bold">Navigate cases</h3><div className="mt-3 space-y-3">{Array.from({ length: selectedNode.cases }, (_, index) => { const caseId = `${selectedNode.id}-case-${index + 1}`; return <a key={caseId} href={`/fraud-network/cases/${caseId}`} className="block rounded-xl border border-[#e1e5e0] p-4 transition hover:border-[#9cb39f] hover:bg-[#f7f9f6]"><div className="flex items-center justify-between gap-3"><span className="text-xs font-bold text-[#26332d]">Case {String(index + 1).padStart(2, '0')} · {selectedNode.district}</span><span className="text-[#718078]">→</span></div><p className="mt-2 text-xs leading-5 text-[#718078]">Linked MPLADS work review involving {selectedNode.name}.</p><p className="mt-3 text-[10px] font-bold uppercase tracking-wide text-[#66735f]">Open case file</p></a> })}</div></div></aside>}
     </section>
   )
 }

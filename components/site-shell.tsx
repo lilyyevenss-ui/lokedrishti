@@ -34,7 +34,7 @@ export function SiteShell({ children }: { children: React.ReactNode }) {
     if (authenticated && role === 'Citizen' && pathname === '/') router.replace('/citizen/works')
   }, [authenticated, pathname, role, router])
 
-  if (pathname.startsWith('/fraud-network/cases/')) return <>{children}</>
+  if (pathname.startsWith('/fraud-network')) return <>{children}</>
   if (!authenticated) return <LoginScreen onLogin={(nextRole) => { login(nextRole); router.replace(nextRole === 'Citizen' ? '/citizen/works' : '/') }} />
   // Avoid rendering the citizen shell for a frame while an officer route is resolving.
   if (pathname.startsWith('/officer') && role === 'Citizen') return <div className="min-h-screen bg-background" aria-busy="true" />
